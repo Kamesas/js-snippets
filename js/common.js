@@ -1,24 +1,27 @@
 window.onload = function () {
 
 	document.querySelector('#myIP').onclick = function() {
-		ajaxGet();
+		//ajaxGet('../ip.php');
+		ajaxGet('../phones.json');
 	}
 	
 }
 
-function ajaxGet() {
+function ajaxGet(url) {
 
 	let request = new XMLHttpRequest() ;
-<<<<<<< HEAD
 
 	request.onreadystatechange = function() {
 		console.log(request.readyState);
+
+		if(request.readyState == 4 && request.status == 200) {
+			document.querySelector('#myIP').innerHTML =	request.responseText;
+		}
+
 	}
 
 	
-=======
->>>>>>> 2995f2cbb9eb425f2f86037c73c3e05bdc0f4ad5
-	request.open('GET', '../ip.php');
+	request.open('GET', url);
 	request.send();
 
 }
