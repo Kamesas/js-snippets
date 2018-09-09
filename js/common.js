@@ -3,6 +3,7 @@ window.onload = function () {
 	document.querySelector('#myIP').onclick = function() {
 		//ajaxGet('../ip.php');
 		ajaxGet('../phones.json');
+	
 	}
 	
 }
@@ -15,7 +16,8 @@ function ajaxGet(url) {
 		console.log(request.readyState);
 
 		if(request.readyState == 4 && request.status == 200) {
-			document.querySelector('#myIP').innerHTML =	request.responseText;
+			let phones = 	document.querySelector('#myIP').innerHTML =	request.responseText;
+			console.log(phones);
 		}
 
 	}
