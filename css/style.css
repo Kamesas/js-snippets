@@ -1,3 +1,24 @@
 body {
   background-color: #eee;
 }
+
+#products {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#products .product {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  background-color: #aaa;
+  box-sizing: border-box;
+}
+
+#products .product-active {
+  border: 1px solid #000;
+}
