@@ -19,8 +19,7 @@ body {
 	transition: all 1s ease;
 }
 
-#foto img:first-child {
-	display: block;
+#foto img.showed {	
 	opacity: 1;
 }
 

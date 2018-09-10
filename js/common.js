@@ -13,21 +13,21 @@ window.onload = function () {
 	let i = 0;
 
 	btnPrev.onclick = function () {
-		images[i].style.opacity = 0;
+		images[i].className= '';
 		i--;
 		if (i < 0) {
 			i = images.length - 1;
 		}
-		images[i].style.opacity = 1;		
+		images[i].className = 'showed';		
 	}
 
 	btnNext.onclick = function () {
-		images[i].style.opacity = 0;
+		images[i].className = '';
 		i++;
 		if (i >= images.length) {
 			i = 0
 		}
-		images[i].style.opacity = 1;		
+		images[i].className = 'showed';		
 		
 	}
 
