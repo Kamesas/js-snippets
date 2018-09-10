@@ -1,3 +1,8 @@
 window.onload = function() {
-  console.log("ready!");
+  document.body.addEventListener("click", function() {
+    console.log(1);
+  });
+  document.body.addEventListener("click", function() {
+    console.log(2);
+  });
 };
