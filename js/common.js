@@ -8,6 +8,6 @@ window.onload = function() {
 };
 
 function btnClick(e) {
-  console.log(this.id);
+  console.log(this);
   this.id === "save" ? console.log("Save") : console.log("Delete");
 }
