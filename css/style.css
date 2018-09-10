@@ -6,15 +6,22 @@ body {
 #foto {
 	width: 800px;
 	margin: auto;
+	position: relative;
 }
 #foto img {
 	width: 100%;
 	border: 3px solid #ddd;
-	display: none;
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	-webkit-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
 }
 
 #foto img:first-child {
 	display: block;
+	opacity: 1;
 }
 
 #controlsBTN {
