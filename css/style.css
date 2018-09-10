@@ -1,0 +1,22 @@
+body {
+	max-width: 1200px;
+	margin: auto;
+}
+
+#foto {
+	width: 800px;
+	margin: auto;
+}
+#foto img {
+	width: 100%;
+	border: 3px solid #ddd;
+	display: none;
+}
+
+#foto img:first-child {
+	display: block;
+}
+
+#controlsBTN {
+	text-align: center;
+}
