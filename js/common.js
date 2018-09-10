@@ -1,10 +1,13 @@
 window.onload = function() {
-  document.body.addEventListener("click", firstClick);
-  document.body.addEventListener("click", function() {
-    console.log(2);
-  });
+  const btns = document.querySelectorAll(".btns button");
+
+  for (let i = 0; i < btns.length; i++) {
+    const btn = btns[i];
+    btn.onclick = btnClick;
+  }
 };
 
-function firstClick(e) {
-  console.log(1);
+function btnClick(e) {
+  console.log(this.id);
+  this.id === "save" ? console.log("Save") : console.log("Delete");
 }
