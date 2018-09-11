@@ -8,17 +8,34 @@ body {
 }
 
 .items .item {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgb(226, 65, 213);
   background-color: red;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.5s ease;
+  box-shadow: 1px 1px 3px rgb(168, 17, 17);
+}
+
+.items .item:nth-child(odd) {
+  border: 1px solid blue;
+  background-color: rgb(15, 80, 47);
+  transition: all 0.5s ease;
 }
 
 .items .item-active {
   border: 1px solid #000;
   background-color: yellow;
-  box-sizing: border-box;
+  transition: all 0.5s ease;
+}
+
+.items .item-active:nth-child(odd) {
+  background-color: orange;
+  border: 1px solid purple;
+  transition: all 0.5s ease;
 }
