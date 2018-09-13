@@ -7,6 +7,10 @@ window.onload = function() {
   let slider1 = new Slider(items);
   let slider2 = new Slider(items2);
 
+  setInterval(function() {
+    slider2.nextSlide();
+  }, 3000);
+
   next.onclick = function() {
     slider1.prevSlide();
   };
