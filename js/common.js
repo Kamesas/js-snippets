@@ -1,9 +1,11 @@
 window.onload = function() {
-  const items = document.querySelectorAll(".carousel .item");
+  const items = document.querySelectorAll(".carousel1 .item");
+  const items2 = document.querySelectorAll(".carousel2 .item");
   const prev = document.querySelector(".prev");
   const next = document.querySelector(".next");
 
   let slider1 = new Slider(items);
+  let slider2 = new Slider(items2);
 
   next.onclick = function() {
     slider1.prevSlide();
