@@ -1,14 +1,25 @@
 window.onload = function() {
-  let student1 = new Student("Alex", 30);
-  let student2 = new Student("Alla");
+  const carouselItems = document.querySelectorAll(".carousel .item");
+  const prev = document.querySelector(".prev");
+  const next = document.querySelector(".next");
 
-  console.log(student1);
-  console.log(student2);
+  let i = 0;
 
-  function Student(name, age) {
-    this.name = name;
-    this.age = age;
+  next.onclick = function() {
+    carouselItems[i].classList.remove("item-active");
+    i++;
+    if (i >= carouselItems.length) {
+      i = 0;
+    }
+    carouselItems[i].classList.add("item-active");
+  };
 
-    this.skill = "webDev";
-  }
+  prev.onclick = function() {
+    carouselItems[i].classList.remove("item-active");
+    i--;
+    if (i < 0) {
+      i = carouselItems.length - 1;
+    }
+    carouselItems[i].classList.add("item-active");
+  };
 };

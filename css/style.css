@@ -1,3 +1,22 @@
 body {
   background-color: #eee;
 }
+
+.carousel {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+}
+
+.carousel .item {
+  position: absolute;
+  opacity: 0;
+}
+
+.carousel .item:first-of-type {
+  opacity: 1;
+}
+
+.carousel .item-active {
+  opacity: 1;
+}
