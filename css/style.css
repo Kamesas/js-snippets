@@ -11,6 +11,7 @@ body {
 .carousel .item {
   position: absolute;
   opacity: 0;
+  transition: all 1s ease-in-out;
 }
 
 .carousel .item:first-of-type {
@@ -19,4 +20,5 @@ body {
 
 .carousel .item-active {
   opacity: 1;
+  transition: all 1s ease-in-out;
 }

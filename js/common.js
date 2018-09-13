@@ -4,22 +4,25 @@ window.onload = function() {
   const next = document.querySelector(".next");
 
   let i = 0;
+  next.onclick = nextSlide;
+  prev.onclick = prevSlide;
+  setInterval(nextSlide, 3000);
 
-  next.onclick = function() {
+  function nextSlide() {
     carouselItems[i].classList.remove("item-active");
     i++;
     if (i >= carouselItems.length) {
       i = 0;
     }
     carouselItems[i].classList.add("item-active");
-  };
+  }
 
-  prev.onclick = function() {
+  function prevSlide() {
     carouselItems[i].classList.remove("item-active");
     i--;
     if (i < 0) {
       i = carouselItems.length - 1;
     }
     carouselItems[i].classList.add("item-active");
-  };
+  }
 };
