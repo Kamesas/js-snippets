@@ -4,24 +4,43 @@ window.onload = function() {
   // const prev = document.querySelector(".prev");
   // const next = document.querySelector(".next");
 
-  let slider1 = new Slider(items);
-  let slider2 = new Slider(items2);
+  let slider1 = new Slider({
+    carouselItems: ".carousel1 .item",
+    btnNext: ".carousel1 .next",
+    btnPrev: ".carousel1 .prev",
+    autoPlay: true
+    //speed: 1000
+  });
 
-  setInterval(function() {
-    slider2.nextSlide();
-  }, 3000);
+  let slider2 = new Slider({
+    carouselItems: ".carousel2 .item",
+    btnNext: ".carousel2 .next",
+    btnPrev: ".carousel2 .prev",
+    autoPlay: true,
+    speed: 2000
+  });
 
-  function Slider(carouselItems) {
+  function Slider(obj) {
     let i = 0;
     const slider = this;
-    slider.carouselItems = carouselItems;
+    slider.carouselItems = document.querySelectorAll(obj.carouselItems);
+    slider.btnNext = document.querySelector(obj.btnNext);
+    slider.btnPrev = document.querySelector(obj.btnPrev);
+    slider.autoPlay = obj.autoPlay;
+    slider.speed = obj.speed;
 
-    document.querySelector(".next").onclick = function() {
-      slider1.nextSlide();
+    if (slider.autoPlay) {
+      setInterval(function() {
+        slider.nextSlide();
+      }, slider.speed ? slider.speed : 3000);
+    }
+
+    slider.btnNext.onclick = function() {
+      slider.nextSlide();
     };
 
-    document.querySelector(".prev").onclick = function() {
-      slider1.prevSlide();
+    slider.btnPrev.onclick = function() {
+      slider.prevSlide();
     };
 
     slider.nextSlide = function() {
