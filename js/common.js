@@ -27,12 +27,12 @@ window.onload = function() {
     slider.btnNext = document.querySelector(obj.btnNext);
     slider.btnPrev = document.querySelector(obj.btnPrev);
     slider.autoPlay = obj.autoPlay;
-    slider.speed = obj.speed;
+    slider.speed = obj.speed || 3000;
 
     if (slider.autoPlay) {
       setInterval(function() {
         slider.nextSlide();
-      }, slider.speed ? slider.speed : 3000);
+      }, slider.speed);
     }
 
     slider.btnNext.onclick = function() {
