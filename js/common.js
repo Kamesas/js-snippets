@@ -1,28 +1,37 @@
 window.onload = function() {
-  const carouselItems = document.querySelectorAll(".carousel .item");
+  const items = document.querySelectorAll(".carousel .item");
   const prev = document.querySelector(".prev");
   const next = document.querySelector(".next");
 
-  let i = 0;
-  next.onclick = nextSlide;
-  prev.onclick = prevSlide;
-  setInterval(nextSlide, 3000);
+  let slider1 = new Slider(items);
 
-  function nextSlide() {
-    carouselItems[i].classList.remove("item-active");
-    i++;
-    if (i >= carouselItems.length) {
-      i = 0;
-    }
-    carouselItems[i].classList.add("item-active");
-  }
+  next.onclick = function() {
+    slider1.prevSlide();
+  };
+  prev.onclick = function() {
+    slider1.nextSlide();
+  };
 
-  function prevSlide() {
-    carouselItems[i].classList.remove("item-active");
-    i--;
-    if (i < 0) {
-      i = carouselItems.length - 1;
-    }
-    carouselItems[i].classList.add("item-active");
+  function Slider(carouselItems) {
+    let i = 0;
+    this.carouselItems = carouselItems;
+
+    this.nextSlide = function() {
+      this.carouselItems[i].classList.remove("item-active");
+      i++;
+      if (i >= this.carouselItems.length) {
+        i = 0;
+      }
+      this.carouselItems[i].classList.add("item-active");
+    };
+
+    this.prevSlide = function() {
+      this.carouselItems[i].classList.remove("item-active");
+      i--;
+      if (i < 0) {
+        i = this.carouselItems.length - 1;
+      }
+      this.carouselItems[i].classList.add("item-active");
+    };
   }
 };
