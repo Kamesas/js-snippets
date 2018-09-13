@@ -1,8 +1,8 @@
 window.onload = function() {
   const items = document.querySelectorAll(".carousel1 .item");
   const items2 = document.querySelectorAll(".carousel2 .item");
-  const prev = document.querySelector(".prev");
-  const next = document.querySelector(".next");
+  // const prev = document.querySelector(".prev");
+  // const next = document.querySelector(".next");
 
   let slider1 = new Slider(items);
   let slider2 = new Slider(items2);
@@ -11,33 +11,35 @@ window.onload = function() {
     slider2.nextSlide();
   }, 3000);
 
-  next.onclick = function() {
-    slider1.prevSlide();
-  };
-  prev.onclick = function() {
-    slider1.nextSlide();
-  };
-
   function Slider(carouselItems) {
     let i = 0;
-    this.carouselItems = carouselItems;
+    const slider = this;
+    slider.carouselItems = carouselItems;
 
-    this.nextSlide = function() {
-      this.carouselItems[i].classList.remove("item-active");
-      i++;
-      if (i >= this.carouselItems.length) {
-        i = 0;
-      }
-      this.carouselItems[i].classList.add("item-active");
+    document.querySelector(".next").onclick = function() {
+      slider1.nextSlide();
     };
 
-    this.prevSlide = function() {
-      this.carouselItems[i].classList.remove("item-active");
+    document.querySelector(".prev").onclick = function() {
+      slider1.prevSlide();
+    };
+
+    slider.nextSlide = function() {
+      slider.carouselItems[i].classList.remove("item-active");
+      i++;
+      if (i >= slider.carouselItems.length) {
+        i = 0;
+      }
+      slider.carouselItems[i].classList.add("item-active");
+    };
+
+    slider.prevSlide = function() {
+      slider.carouselItems[i].classList.remove("item-active");
       i--;
       if (i < 0) {
-        i = this.carouselItems.length - 1;
+        i = slider.carouselItems.length - 1;
       }
-      this.carouselItems[i].classList.add("item-active");
+      slider.carouselItems[i].classList.add("item-active");
     };
   }
 };
